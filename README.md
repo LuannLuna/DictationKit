@@ -1,68 +1,96 @@
-# Willow Voice – Home Assignment
+# DictationKit
 
-Hey there! This project is all about making voice dictation feel easy and natural on iOS. It's split into two main parts: a simple app and a custom keyboard extension.
+Native iOS voice-to-text app with a custom system keyboard, built in SwiftUI with the Deepgram API.
 
-## What's Included?
+## Demo
 
-- **The App:**
-  - Lets you record your voice and see the transcription live.
-  - You can adjust settings like language, audio quality, and punctuation.
-  - Keeps a history of your last transcript.
+![Transcription demo](Transcription%20DEMO.MP4)
 
-- **The Keyboard Extension (WillowKeyboard):**
-  - Adds a microphone button to your keyboard, so you can dictate text anywhere on your device.
-  - Shares your settings and last transcript with the main app, so you always feel at home.
+## Overview
 
-## My Approach
+DictationKit is a portfolio-grade iOS sample that demonstrates a complete voice-dictation pipeline on iOS: record audio with AVFoundation, send it to the Deepgram speech-to-text API, surface live results in a SwiftUI interface, and persist settings and the last transcript so they're available both inside the app and from a companion custom keyboard extension.
 
-I wanted this to feel friendly and straightforward, both to use and to understand. Here's how I tackled it:
+It's intentionally small enough to read end-to-end in one sitting, but covers the architectural choices a production iOS feature would actually face: modular service layers, actor-isolated networking, App Groups for cross-process data sharing, and a clean separation between the SwiftUI app and a UIKit-based keyboard extension.
 
-- **SwiftUI for the app:** For a clean, modern look.
-- **UIKit for the keyboard:** Because custom keyboards need a bit more control.
-- **App Groups:** So the app and keyboard can share settings and transcripts.
-- **Combine & async/await:** For smooth, responsive updates and networking.
-- **Deepgram API:** Handles the heavy lifting of turning your speech into text.
+## Features
 
-## Trade-offs & Limitations
+- One-tap voice recording with live state UI and animated mic button.
+- Speech-to-text transcription via the Deepgram `nova-2` model.
+- Configurable transcription settings: language, audio quality, auto-punctuation, auto-capitalization.
+- Last transcript and user settings shared between the app and the keyboard extension via App Groups.
+- Custom system keyboard extension that mirrors the app's transcription path (see *Known issues* — currently non-functional).
 
-- **Keyboard Extension:**
-  - The transcription feature in the keyboard extension isn't working as expected right now. (It does work in the main app!)
-- **Internet Required:**
-  - Voice transcription depends on a network connection.
-- **Privacy:**
-  - Audio is sent to Deepgram for processing; nothing is stored long-term.
+## Tech stack
 
-## Known Issues & Problems
+- **UI** — SwiftUI (main app), UIKit / `UIInputViewController` (keyboard extension)
+- **Concurrency** — Swift Concurrency (`actor`, `async/await`, `@MainActor`) with Combine for reactive view-model updates
+- **Networking** — `URLSession` against the Deepgram REST API (`https://api.deepgram.com/v1/listen`)
+- **Audio** — AVFoundation (`AVAudioRecorder`, `AVAudioSession`)
+- **Persistence / IPC** — App Groups (`UserDefaults(suiteName:)`), iCloud Key-Value Store
+- **Language / targets** — Swift 5, iOS 18.5+
 
-- **Keyboard Extension Transcription:**
-  - The voice dictation feature in the keyboard extension is currently non-functional
-  - The microphone button appears but doesn't trigger transcription
-  - This is likely due to iOS security restrictions on keyboard extensions accessing microphone permissions
+## Architecture
 
-- **Audio Session Management:**
-  - Potential conflicts between the main app and keyboard extension when both try to access audio
-  - iOS may terminate audio sessions unexpectedly when switching between app and keyboard
+The app follows an **MVVM** structure with a single source of truth on the main actor:
 
-- **App Group Data Sharing:**
-  - Settings and transcript data sharing between app and keyboard may be unreliable
-  - Race conditions could occur when both components try to read/write shared data simultaneously
+- **View layer (SwiftUI)** — `ContentView`, `SettingsView`, `TranscriptView`, `RecordingButton`. Views observe state through `@EnvironmentObject` injection.
+- **View model / state** — `@MainActor class AppState: ObservableObject` (`DictationKit/State/AppState.swift`) owns recording state, exposes `@Published` properties, and bridges Combine subscriptions to the App Groups store.
+- **Services** — `actor DeepgramService` for thread-safe network calls, `AudioSessionManager` and `AudioRecorder` for AVFoundation orchestration, `AppGroupsManager` for cross-process persistence, `SecureConfigurationManager` for credential access.
+- **Models** — Plain Codable structs (`TranscriptionResult`, `UserSettings`, `AudioRecordingSettings`) with no business logic.
+- **Two targets, shared models** — The main app and the keyboard extension each compile their own copy of the shared model and service files. Duplicating these by target (rather than extracting an `.xcframework` or local SPM package) is a deliberate simplification kept from the project's origin as a short take-home assignment; extracting a shared module is the obvious next step for any production codebase.
 
-- **Network Connectivity:**
-  - No offline fallback when internet connection is unavailable
-  - No retry mechanism for failed API calls to Deepgram
-  - Users may experience silent failures when network is unstable
+## Project structure
 
-- **Memory Management:**
-  - Large audio files could cause memory pressure on older devices
-  - No cleanup mechanism for temporary audio files
+```
+.
+├── DictationKit/                  # Main app target (SwiftUI)
+│   ├── DictationKitApp.swift      # @main entry point
+│   ├── Views/                     # ContentView, SettingsView, TranscriptView
+│   ├── Components/                # RecordingButton
+│   ├── State/                     # AppState (@MainActor view model)
+│   ├── Service/                   # DeepgramService (actor)
+│   ├── Models/                    # TranscriptionResult, errors
+│   ├── Utils/                     # AudioRecorder, AudioSessionManager,
+│   │                              # AppGroupsManager, SecureConfigurationManager,
+│   │                              # UserSettings, AudioRecordingSettings
+│   └── Resources/                 # Assets.xcassets, entitlements
+├── DictationKitKeyboard/          # Custom keyboard extension (UIKit)
+│   ├── KeyboardViewController.swift
+│   ├── Info.plist
+│   └── (duplicated shared files: AppGroupsManager, DeepgramService, ...)
+├── DictationKit.xcodeproj/
+├── Transcription DEMO.MP4
+└── README.md
+```
 
-- **UI/UX Issues:**
-  - No loading indicators during transcription
-  - No error messages when transcription fails
-  - Limited feedback for users when operations are in progress
+## Requirements
 
-## Final Thoughts
+- Xcode 16 or newer
+- iOS 18.5+ (device or simulator)
+- An Apple Developer team set in *Signing & Capabilities* for both targets
+- A Deepgram API key ([signup](https://deepgram.com))
 
-This project is meant to show a real-world, user-focused approach to voice dictation on iOS. If you try it out, I hope you find the experience smooth and the code easy to follow!
+## Running locally
 
-— Luann Luna
+1. `open DictationKit.xcodeproj`
+2. In **Signing & Capabilities** for both the `DictationKit` and `DictationKitKeyboard` targets, select your development team. Automatic signing will create new App IDs for the bundle identifiers `com.luannluna.DictationKit` and `com.luannluna.DictationKit.Keyboard`.
+3. Add your Deepgram API key in `DictationKit/Utils/SecureConfigurationManager.swift` — replace the placeholder value returned from `getDeepgramApiKey()`. (Putting it through Keychain instead is one of the *next steps* below.)
+4. Build and run the `DictationKit` scheme. The keyboard extension can be installed from *Settings → General → Keyboard → Keyboards*, but see the known-issue note below.
+
+## Known issues
+
+- **Keyboard extension transcription is non-functional.** The mic button renders inside the keyboard, but tapping it does not produce a transcript. The most likely contributing factors are the stricter sandbox iOS applies to keyboard extensions reaching the microphone (even with `RequestsOpenAccess` and `NSMicrophoneUsageDescription` set), the placeholder Deepgram credential plumbed through `SecureConfigurationManager`, and audio-session contention between the host app and the extension. The full transcription path works end-to-end in the main app.
+- **No retry / no offline mode** — a failed Deepgram call surfaces as a one-shot error with no backoff or fallback transcript.
+- **Shared code is duplicated between targets** — not packaged as a framework or local SPM module.
+- **Repo root folder name** — the on-disk repository root is `WillowHomeAssignment/` for historical reasons; the Xcode project, both targets, and all bundle identifiers are `DictationKit`. Cloning the repo under a new directory name has no effect on the build.
+- **Keyboard extension iOS deployment target** — set to a future iOS version in `project.pbxproj` (pre-existing config anomaly). The main app target is correctly set to iOS 18.5.
+
+## What I'd do next
+
+- Diagnose the keyboard-extension microphone path — confirm whether `RequestsOpenAccess` plus runtime permission is actually granting mic access, and instrument the failure mode with user-visible errors.
+- Replace `SecureConfigurationManager`'s hardcoded credentials with Keychain-backed storage and add a Deepgram retry/backoff policy.
+- Extract the duplicated services and models into a local Swift Package consumed by both targets, and add XCTest / Swift Testing coverage around `DeepgramService` and `AppGroupsManager`.
+
+## Author
+
+Luann Luna — [luann.marques@gmail.com](mailto:luann.marques@gmail.com)
