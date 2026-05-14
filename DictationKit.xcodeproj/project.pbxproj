@@ -185,9 +185,6 @@
 			);
 			mainGroup = A44ADF902E33BE7C005DC8B9;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				A42404A92E3642C6008EF145 /* XCRemoteSwiftPackageReference "FleksySDK-iOS" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A44ADF9A2E33BE7C005DC8B9 /* Products */;
 			projectDirPath = "";
@@ -512,17 +509,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A42404A92E3642C6008EF145 /* XCRemoteSwiftPackageReference "FleksySDK-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/FleksySDK/FleksySDK-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = A44ADF912E33BE7C005DC8B9 /* Project object */;
 }

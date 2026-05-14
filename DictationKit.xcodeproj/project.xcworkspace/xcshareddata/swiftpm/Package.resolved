@@ -1,42 +1,6 @@
 {
   "originHash" : "75306c832699f949c84c62ca89652cee8feaa8caaebcdbb06e2b9f3dd8cdf291",
   "pins" : [
-    {
-      "identity" : "fleksyengine-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FleksySDK/FleksyEngine-iOS",
-      "state" : {
-        "revision" : "c24a4a749261ab19a7d1a905fbc0ebe274f9bcf7",
-        "version" : "3.21.0"
-      }
-    },
-    {
-      "identity" : "fleksysdk-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FleksySDK/FleksySDK-iOS",
-      "state" : {
-        "revision" : "45f9cf7fd7c6726ff053e96e1b2394377c3f3198",
-        "version" : "5.0.0"
-      }
-    },
-    {
-      "identity" : "ios-coreservices",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FleksySDK/iOS-CoreServices",
-      "state" : {
-        "revision" : "f75911c19a3969e447b78039574797c015c34737",
-        "version" : "1.15.3"
-      }
-    },
-    {
-      "identity" : "ios-fleksyappscore",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FleksySDK/iOS-FleksyAppsCore",
-      "state" : {
-        "revision" : "906000a77a51fc5a00a5eeb8ce1c5dad7daf7ae6",
-        "version" : "1.4.0"
-      }
-    }
   ],
   "version" : 3
 }
