@@ -13,7 +13,7 @@ struct ContentView: View {
                         .font(.system(size: 60))
                         .foregroundColor(.blue)
 
-                    Text("Willow Voice")
+                    Text("Dictation Kit")
                         .font(.largeTitle)
                         .fontWeight(.bold)
 

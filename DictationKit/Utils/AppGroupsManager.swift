@@ -2,7 +2,7 @@ import Foundation
 
 public class AppGroupsManager {
     public static let shared = AppGroupsManager()
-    private let suiteName = "group.com.luannluna.WillowHomeAssignment"
+    private let suiteName = "group.com.luannluna.DictationKit"
     private let defaults: UserDefaults?
     
     private init() {
