@@ -82,7 +82,6 @@ The app follows an **MVVM** structure with a single source of truth on the main 
 - **Keyboard extension transcription is non-functional.** The mic button renders inside the keyboard, but tapping it does not produce a transcript. The most likely contributing factors are the stricter sandbox iOS applies to keyboard extensions reaching the microphone (even with `RequestsOpenAccess` and `NSMicrophoneUsageDescription` set), the placeholder Deepgram credential plumbed through `SecureConfigurationManager`, and audio-session contention between the host app and the extension. The full transcription path works end-to-end in the main app.
 - **No retry / no offline mode** — a failed Deepgram call surfaces as a one-shot error with no backoff or fallback transcript.
 - **Shared code is duplicated between targets** — not packaged as a framework or local SPM module.
-- **Repo root folder name** — the on-disk repository root is `WillowHomeAssignment/` for historical reasons; the Xcode project, both targets, and all bundle identifiers are `DictationKit`. Cloning the repo under a new directory name has no effect on the build.
 - **Keyboard extension iOS deployment target** — set to a future iOS version in `project.pbxproj` (pre-existing config anomaly). The main app target is correctly set to iOS 18.5.
 
 ## What I'd do next
