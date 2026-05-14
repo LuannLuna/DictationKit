@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4D496FA2E37036000688412 /* WillowKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A4D496F32E37036000688412 /* WillowKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A4D496FA2E37036000688412 /* DictationKitKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A4D496F32E37036000688412 /* DictationKitKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -16,7 +16,7 @@
 			containerPortal = A44ADF912E33BE7C005DC8B9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A4D496F22E37036000688412;
-			remoteInfo = WillowKeyboard;
+			remoteInfo = DictationKitKeyboard;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -27,7 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A4D496FA2E37036000688412 /* WillowKeyboard.appex in Embed Foundation Extensions */,
+				A4D496FA2E37036000688412 /* DictationKitKeyboard.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,32 +35,32 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A44ADF992E33BE7C005DC8B9 /* WillowHomeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WillowHomeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4D496F32E37036000688412 /* WillowKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WillowKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A44ADF992E33BE7C005DC8B9 /* DictationKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DictationKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4D496F32E37036000688412 /* DictationKitKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DictationKitKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A4D496FB2E37036000688412 /* Exceptions for "WillowKeyboard" folder in "WillowKeyboard" target */ = {
+		A4D496FB2E37036000688412 /* Exceptions for "DictationKitKeyboard" folder in "DictationKitKeyboard" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = A4D496F22E37036000688412 /* WillowKeyboard */;
+			target = A4D496F22E37036000688412 /* DictationKitKeyboard */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A44ADF9B2E33BE7C005DC8B9 /* WillowHomeAssignment */ = {
+		A44ADF9B2E33BE7C005DC8B9 /* DictationKit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WillowHomeAssignment;
+			path = DictationKit;
 			sourceTree = "<group>";
 		};
-		A4D496F42E37036000688412 /* WillowKeyboard */ = {
+		A4D496F42E37036000688412 /* DictationKitKeyboard */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A4D496FB2E37036000688412 /* Exceptions for "WillowKeyboard" folder in "WillowKeyboard" target */,
+				A4D496FB2E37036000688412 /* Exceptions for "DictationKitKeyboard" folder in "DictationKitKeyboard" target */,
 			);
-			path = WillowKeyboard;
+			path = DictationKitKeyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -86,8 +86,8 @@
 		A44ADF902E33BE7C005DC8B9 = {
 			isa = PBXGroup;
 			children = (
-				A44ADF9B2E33BE7C005DC8B9 /* WillowHomeAssignment */,
-				A4D496F42E37036000688412 /* WillowKeyboard */,
+				A44ADF9B2E33BE7C005DC8B9 /* DictationKit */,
+				A4D496F42E37036000688412 /* DictationKitKeyboard */,
 				A4D496E22E37009B00688412 /* Frameworks */,
 				A44ADF9A2E33BE7C005DC8B9 /* Products */,
 			);
@@ -96,8 +96,8 @@
 		A44ADF9A2E33BE7C005DC8B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A44ADF992E33BE7C005DC8B9 /* WillowHomeAssignment.app */,
-				A4D496F32E37036000688412 /* WillowKeyboard.appex */,
+				A44ADF992E33BE7C005DC8B9 /* DictationKit.app */,
+				A4D496F32E37036000688412 /* DictationKitKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,9 +112,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A44ADF982E33BE7C005DC8B9 /* WillowHomeAssignment */ = {
+		A44ADF982E33BE7C005DC8B9 /* DictationKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A44ADFBC2E33BE7F005DC8B9 /* Build configuration list for PBXNativeTarget "WillowHomeAssignment" */;
+			buildConfigurationList = A44ADFBC2E33BE7F005DC8B9 /* Build configuration list for PBXNativeTarget "DictationKit" */;
 			buildPhases = (
 				A44ADF952E33BE7C005DC8B9 /* Sources */,
 				A44ADF962E33BE7C005DC8B9 /* Frameworks */,
@@ -127,18 +127,18 @@
 				A4D496F92E37036000688412 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				A44ADF9B2E33BE7C005DC8B9 /* WillowHomeAssignment */,
+				A44ADF9B2E33BE7C005DC8B9 /* DictationKit */,
 			);
-			name = WillowHomeAssignment;
+			name = DictationKit;
 			packageProductDependencies = (
 			);
-			productName = WillowHomeAssignment;
-			productReference = A44ADF992E33BE7C005DC8B9 /* WillowHomeAssignment.app */;
+			productName = DictationKit;
+			productReference = A44ADF992E33BE7C005DC8B9 /* DictationKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A4D496F22E37036000688412 /* WillowKeyboard */ = {
+		A4D496F22E37036000688412 /* DictationKitKeyboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4D496FC2E37036000688412 /* Build configuration list for PBXNativeTarget "WillowKeyboard" */;
+			buildConfigurationList = A4D496FC2E37036000688412 /* Build configuration list for PBXNativeTarget "DictationKitKeyboard" */;
 			buildPhases = (
 				A4D496EF2E37036000688412 /* Sources */,
 				A4D496F02E37036000688412 /* Frameworks */,
@@ -149,13 +149,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A4D496F42E37036000688412 /* WillowKeyboard */,
+				A4D496F42E37036000688412 /* DictationKitKeyboard */,
 			);
-			name = WillowKeyboard;
+			name = DictationKitKeyboard;
 			packageProductDependencies = (
 			);
-			productName = WillowKeyboard;
-			productReference = A4D496F32E37036000688412 /* WillowKeyboard.appex */;
+			productName = DictationKitKeyboard;
+			productReference = A4D496F32E37036000688412 /* DictationKitKeyboard.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A44ADF942E33BE7C005DC8B9 /* Build configuration list for PBXProject "WillowHomeAssignment" */;
+			buildConfigurationList = A44ADF942E33BE7C005DC8B9 /* Build configuration list for PBXProject "DictationKit" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -193,8 +193,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A44ADF982E33BE7C005DC8B9 /* WillowHomeAssignment */,
-				A4D496F22E37036000688412 /* WillowKeyboard */,
+				A44ADF982E33BE7C005DC8B9 /* DictationKit */,
+				A4D496F22E37036000688412 /* DictationKitKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -236,7 +236,7 @@
 /* Begin PBXTargetDependency section */
 		A4D496F92E37036000688412 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A4D496F22E37036000688412 /* WillowKeyboard */;
+			target = A4D496F22E37036000688412 /* DictationKitKeyboard */;
 			targetProxy = A4D496F82E37036000688412 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -374,6 +374,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses your microphone to record audio for transcription.";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dictation Kit";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -384,7 +385,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.WillowHomeAssignment;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.DictationKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -403,6 +404,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses your microphone to record audio for transcription.";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dictation Kit";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -413,7 +415,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.WillowHomeAssignment;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.DictationKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -428,8 +430,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQWCUMF3L5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WillowKeyboard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WillowKeyboard;
+				INFOPLIST_FILE = DictationKitKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dictation Kit";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -438,7 +440,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.WillowHomeAssignment.WillowKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.DictationKit.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -457,8 +459,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQWCUMF3L5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WillowKeyboard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WillowKeyboard;
+				INFOPLIST_FILE = DictationKitKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dictation Kit";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -467,7 +469,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.WillowHomeAssignment.WillowKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luannluna.DictationKit.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -482,7 +484,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A44ADF942E33BE7C005DC8B9 /* Build configuration list for PBXProject "WillowHomeAssignment" */ = {
+		A44ADF942E33BE7C005DC8B9 /* Build configuration list for PBXProject "DictationKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A44ADFBA2E33BE7F005DC8B9 /* Debug */,
@@ -491,7 +493,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A44ADFBC2E33BE7F005DC8B9 /* Build configuration list for PBXNativeTarget "WillowHomeAssignment" */ = {
+		A44ADFBC2E33BE7F005DC8B9 /* Build configuration list for PBXNativeTarget "DictationKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A44ADFBD2E33BE7F005DC8B9 /* Debug */,
@@ -500,7 +502,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4D496FC2E37036000688412 /* Build configuration list for PBXNativeTarget "WillowKeyboard" */ = {
+		A4D496FC2E37036000688412 /* Build configuration list for PBXNativeTarget "DictationKitKeyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4D496FD2E37036000688412 /* Debug */,
